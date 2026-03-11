@@ -75,4 +75,4 @@ bundle exec ruby bin/pr_doctor.rb https://github.com/publishing-platform/publish
 
 ## Licence
 
-[MIT LICENCE](LICENCE).
+[MIT LICENSE](LICENSE).
