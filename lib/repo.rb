@@ -1,0 +1,37 @@
+require "yaml"
+require_relative "./github_client"
+require_relative "./pull_request"
+
+Repo = Struct.new(:name) do
+  def self.all(config_file = File.join(File.dirname(__FILE__), "../config/repos_opted_in.yml"))
+    YAML.safe_load_file(config_file).map { |repo_name| Repo.new(repo_name) }
+  end
+
+  def publishing_platform_dependabot_merger_config
+    GitHubClient.instance
+      .contents(
+        "publishing-platform/#{name}",
+        {
+          accept: "application/vnd.github.raw",
+          path: ".publishing_platform_dependabot_merger.yml",
+        },
+      )
+      .then { |content| YAML.safe_load(content) }
+  rescue Octokit::NotFound
+    { "error" => "404" }
+  rescue Psych::SyntaxError
+    { "error" => "syntax" }
+  end
+
+  def dependabot_pull_requests
+    @dependabot_pull_requests ||= GitHubClient
+      .instance
+      .pull_requests("publishing-platform/#{name}", state: :open, sort: :created)
+      .select { |api_response| api_response.user.login == "dependabot[bot]" }
+      .map { |api_response| PullRequest.new(api_response) }
+  end
+
+  def dependabot_pull_request(pr_number)
+    PullRequest.new(GitHubClient.instance.pull_request("publishing-platform/#{name}", pr_number))
+  end
+end
