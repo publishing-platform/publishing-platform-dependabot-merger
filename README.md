@@ -53,7 +53,7 @@ bundle exec rspec
 
 ### Using the merger locally
 
-The repo expects an `AUTO_MERGE_TOKEN` environment variable to be defined. This should be a GitHub API token [with sufficient scope](./docs/adr/01-access-token-scope.md).
+The repo expects an `AUTO_MERGE_TOKEN` environment variable to be defined. This should be a GitHub API token with sufficient scope.
 
 You can then run the merger with:
 
