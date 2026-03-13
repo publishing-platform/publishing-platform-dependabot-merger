@@ -1,4 +1,11 @@
+- authenticating-proxy
+- collections-frontend
 - content-publisher
+- content-store
+- frontend
 - organisations-publisher
 - publisher
+- publishing-api
+- router-api
 - search-api
+- signon
