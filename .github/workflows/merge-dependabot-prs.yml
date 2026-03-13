@@ -1,0 +1,25 @@
+name: "Merge Dependabot PRs"
+
+on:
+  schedule:
+    # 8:30am UTC, Mon-Fri.
+    - cron: '30 8 * * 1-5'
+  workflow_dispatch: {}
+
+jobs:
+  merge-dependabot-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run Dependabot-merger script
+        env:
+          AUTO_MERGE_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+        run: |
+          bundle exec ruby bin/merge_dependabot_prs.rb
