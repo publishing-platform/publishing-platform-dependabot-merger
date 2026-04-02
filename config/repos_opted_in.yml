@@ -6,6 +6,9 @@
 - organisations-publisher
 - publisher
 - publishing-api
+- publishing_platform_api_adapters
+- publishing_platform_rubocop
+- publishing_platform_sso
 - router-api
 - search-api
 - signon
