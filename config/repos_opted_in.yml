@@ -7,6 +7,8 @@
 - publisher
 - publishing-api
 - publishing_platform_api_adapters
+- publishing_platform_location
+- publishing_platform_markdown
 - publishing_platform_rubocop
 - publishing_platform_sso
 - router-api
