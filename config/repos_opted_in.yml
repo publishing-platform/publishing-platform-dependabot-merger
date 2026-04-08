@@ -10,8 +10,12 @@
 - publishing_platform_app_config
 - publishing_platform_location
 - publishing_platform_markdown
+- publishing_platform_message_queue_consumer
 - publishing_platform_rubocop
+- publishing_platform_schemas
+- publishing_platform_sidekiq
 - publishing_platform_sso
+- publishing_platform_test
 - publishing-platform-bulk-changer
 - router-api
 - search-api
