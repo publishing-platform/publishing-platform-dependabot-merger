@@ -301,7 +301,7 @@ RSpec.describe PolicyManager do
 
       expect(PolicyManager.new(remote_config).is_auto_mergeable?(mock_pr)).to eq(false)
       expect(PolicyManager.new(remote_config).reasons_not_to_merge(mock_pr)).to eq([
-        "publishing_platform_publishing_components minor increase is not allowed by the derived policy for this dependency: {:auto_merge=>true, :allowed_semver_bumps=>[:patch]}",
+        "publishing_platform_publishing_components minor increase is not allowed by the derived policy for this dependency: {auto_merge: true, allowed_semver_bumps: [:patch]}",
       ])
     end
 
@@ -319,7 +319,7 @@ RSpec.describe PolicyManager do
 
       expect(PolicyManager.new(remote_config).is_auto_mergeable?(mock_pr)).to eq(false)
       expect(PolicyManager.new(remote_config).reasons_not_to_merge(mock_pr)).to eq([
-        "foo minor increase is not allowed by the derived policy for this dependency: {:auto_merge=>false, :allowed_semver_bumps=>[]}",
+        "foo minor increase is not allowed by the derived policy for this dependency: {auto_merge: false, allowed_semver_bumps: []}",
       ])
     end
 
