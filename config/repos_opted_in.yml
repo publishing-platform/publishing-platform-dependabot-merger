@@ -12,6 +12,7 @@
 - publishing_platform_markdown
 - publishing_platform_rubocop
 - publishing_platform_sso
+- publishing-platform-bulk-changer
 - router-api
 - search-api
 - signon
