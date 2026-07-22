@@ -12,6 +12,7 @@
 - publishing_platform_location
 - publishing_platform_markdown
 - publishing_platform_message_queue_consumer
+- publishing_platform_nokodiff
 - publishing_platform_rubocop
 - publishing_platform_schemas
 - publishing_platform_sidekiq
